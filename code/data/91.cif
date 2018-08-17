@@ -1,16 +1,16 @@
 # generated using pymatgen
-data_Li4CO4
+data_K2Hg7
 _symmetry_space_group_name_H-M   'P 1'
-_cell_length_a   4.05119791
-_cell_length_b   4.38525333
-_cell_length_c   4.38525385
-_cell_angle_alpha   88.57501292
-_cell_angle_beta   94.48325042
-_cell_angle_gamma   94.48324584
+_cell_length_a   7.14330971
+_cell_length_b   7.14330970
+_cell_length_c   6.55712582
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   119.99999999
 _symmetry_Int_Tables_number   1
-_chemical_formula_structural   Li4CO4
-_chemical_formula_sum   'Li4 C1 O4'
-_cell_volume   77.41654189
+_chemical_formula_structural   K2Hg7
+_chemical_formula_sum   'K2 Hg7'
+_cell_volume   289.76311956
 _cell_formula_units_Z   1
 loop_
  _symmetry_equiv_pos_site_id
@@ -24,12 +24,12 @@ loop_
  _atom_site_fract_y
  _atom_site_fract_z
  _atom_site_occupancy
-  C  C1  1  0.387723  0.988257  0.988257  1
-  Li  Li2  1  0.684979  0.274532  0.274532  1
-  Li  Li3  1  0.110729  0.346661  0.797252  1
-  Li  Li4  1  0.110729  0.797252  0.346661  1
-  O  O5  1  0.173791  0.788662  0.788662  1
-  O  O6  1  0.589541  0.801609  0.191882  1
-  O  O7  1  0.589541  0.191882  0.801609  1
-  O  O8  1  0.212138  0.170220  0.170220  1
-  Li  Li9  1  0.682619  0.743395  0.743395  1
+  K  K1  1  0.333333  0.666667  0.841138  1
+  K  K2  1  0.666667  0.333333  0.158862  1
+  Hg  Hg3  1  0.182049  0.364099  0.332506  1
+  Hg  Hg4  1  0.635901  0.817951  0.332506  1
+  Hg  Hg5  1  0.182049  0.817951  0.332506  1
+  Hg  Hg6  1  0.817951  0.635901  0.667494  1
+  Hg  Hg7  1  0.817951  0.182049  0.667494  1
+  Hg  Hg8  1  0.364099  0.182049  0.667494  1
+  Hg  Hg9  1  0.000000  0.000000  0.000000  1

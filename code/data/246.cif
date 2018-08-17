@@ -1,17 +1,17 @@
 # generated using pymatgen
-data_Li5Cr2O8
+data_LiMg2
 _symmetry_space_group_name_H-M   'P 1'
-_cell_length_a   7.86859252
-_cell_length_b   5.36064323
-_cell_length_c   5.15379935
-_cell_angle_alpha   65.54795386
-_cell_angle_beta   110.21018620
-_cell_angle_gamma   98.54746053
+_cell_length_a   5.50874466
+_cell_length_b   5.50874413
+_cell_length_c   14.88499089
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   120.00000316
 _symmetry_Int_Tables_number   1
-_chemical_formula_structural   Li5Cr2O8
-_chemical_formula_sum   'Li5 Cr2 O8'
-_cell_volume   185.70476294
-_cell_formula_units_Z   1
+_chemical_formula_structural   LiMg2
+_chemical_formula_sum   'Li6 Mg12'
+_cell_volume   391.18701868
+_cell_formula_units_Z   6
 loop_
  _symmetry_equiv_pos_site_id
  _symmetry_equiv_pos_as_xyz
@@ -24,18 +24,21 @@ loop_
  _atom_site_fract_y
  _atom_site_fract_z
  _atom_site_occupancy
-  Li  Li1  1  0.180641  0.291750  0.409954  1
-  Li  Li2  1  0.465543  0.756204  0.479124  1
-  Li  Li3  1  0.561168  0.268531  0.514150  1
-  Li  Li4  1  0.807556  0.721124  0.555160  1
-  Li  Li5  1  0.987473  0.202901  0.800603  1
-  Cr  Cr6  1  0.239981  0.710959  0.834139  1
-  Cr  Cr7  1  0.758231  0.295050  0.157217  1
-  O  O8  1  0.051705  0.849501  0.793600  1
-  O  O9  1  0.191119  0.472808  0.692660  1
-  O  O10  1  0.360737  0.961217  0.646366  1
-  O  O11  1  0.352550  0.560107  0.204164  1
-  O  O12  1  0.635204  0.475030  0.787948  1
-  O  O13  1  0.631849  0.022588  0.325404  1
-  O  O14  1  0.812281  0.451210  0.406578  1
-  O  O15  1  0.957739  0.202361  0.151517  1
+  Li  Li1  1  0.666667  0.333333  0.499634  1
+  Li  Li2  1  0.333333  0.666667  0.500366  1
+  Li  Li3  1  0.333333  0.666667  0.832967  1
+  Li  Li4  1  -0.000000  -0.000000  0.833699  1
+  Li  Li5  1  -0.000000  -0.000000  0.166301  1
+  Li  Li6  1  0.666667  0.333333  0.167033  1
+  Mg  Mg7  1  0.666667  0.664825  0.333333  1
+  Mg  Mg8  1  0.998158  0.333333  0.333333  1
+  Mg  Mg9  1  -0.000000  -0.000000  0.500000  1
+  Mg  Mg10  1  0.335175  0.001842  0.333333  1
+  Mg  Mg11  1  0.333333  0.998158  0.666667  1
+  Mg  Mg12  1  0.664825  0.666667  0.666667  1
+  Mg  Mg13  1  0.666667  0.333333  0.833333  1
+  Mg  Mg14  1  0.001842  0.335175  0.666667  1
+  Mg  Mg15  1  1.000000  0.331491  -0.000000  1
+  Mg  Mg16  1  0.331491  -0.000000  -0.000000  1
+  Mg  Mg17  1  0.333333  0.666667  0.166667  1
+  Mg  Mg18  1  0.668509  0.668509  -0.000000  1

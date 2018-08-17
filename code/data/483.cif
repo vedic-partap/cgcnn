@@ -1,16 +1,16 @@
 # generated using pymatgen
-data_LiGdO2
+data_Na3Pt
 _symmetry_space_group_name_H-M   'P 1'
-_cell_length_a   6.20116770
-_cell_length_b   6.20116770
-_cell_length_c   6.20116770
-_cell_angle_alpha   137.21315297
-_cell_angle_beta   137.21315297
-_cell_angle_gamma   62.11025424
+_cell_length_a   6.38066005
+_cell_length_b   6.38066005
+_cell_length_c   5.15895037
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   120.00000555
 _symmetry_Int_Tables_number   1
-_chemical_formula_structural   LiGdO2
-_chemical_formula_sum   'Li2 Gd2 O4'
-_cell_volume   108.72581965
+_chemical_formula_structural   Na3Pt
+_chemical_formula_sum   'Na6 Pt2'
+_cell_volume   181.89600921
 _cell_formula_units_Z   2
 loop_
  _symmetry_equiv_pos_site_id
@@ -24,11 +24,11 @@ loop_
  _atom_site_fract_y
  _atom_site_fract_z
  _atom_site_occupancy
-  Li  Li1  1  0.500000  0.500000  0.000000  1
-  Li  Li2  1  0.250000  0.750000  0.500000  1
-  Gd  Gd3  1  0.000000  0.000000  0.000000  1
-  Gd  Gd4  1  0.750000  0.250000  0.500000  1
-  O  O5  1  0.777347  0.777347  0.000000  1
-  O  O6  1  0.222653  0.222653  0.000000  1
-  O  O7  1  0.972653  0.472653  0.500000  1
-  O  O8  1  0.527347  0.027347  0.500000  1
+  Na  Na1  1  0.178226  0.356452  0.250001  1
+  Na  Na2  1  0.643547  0.821774  0.250001  1
+  Na  Na3  1  0.178226  0.821774  0.250001  1
+  Na  Na4  1  0.821773  0.643547  0.750000  1
+  Na  Na5  1  0.356452  0.178226  0.750000  1
+  Na  Na6  1  0.821773  0.178226  0.750000  1
+  Pt  Pt7  1  0.333334  0.666667  0.750000  1
+  Pt  Pt8  1  0.666666  0.333333  0.250001  1

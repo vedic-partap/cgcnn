@@ -14,9 +14,10 @@ with MPRester(API_KEY) as m:
 	# data = m.get_data("Fe2O3", data_type="vasp", prop="formation_energy_per_atom")
 	print("Querying Materials Project Database...")
 	query0 = "Li-O-*"
-	query1 = {"criteria": "{'elements':{'$in':['Li', 'Na', 'K'], '$all': ['O']}, 'nelements':2}", "properties": "['formula', 'formation_energy_per_atom']"}
-	query2 = {"criteria": "{'elements':{'$in':['Li', 'Na', 'K']}, 'nelements':2}"}
-	dataset = m.query(query0, ["material_id", "formation_energy_per_atom", "cif"])
+	query1 = {"elements":{"$in":["Li", "Na", "K"], "$all": ["O"]}, "nelements":2}
+	query2 = {"elements":{"$in":["Li", "Na", "K"]}, "nelements":2}
+	query3 = {"formula_anonymous": {"$in":["A", "A2", "A3", "AB", "AB2", "AB3", "AB4", "ABC", "ABC2", "ABC3", "ABC4"]}}
+	dataset = m.query(query3, ["material_id", "formation_energy_per_atom", "cif"])
 	print("Done Querying. Fetched " + str(len(dataset)) + " data")
 	# print(json.dumps(data, sort_keys=True, indent=4, separators=(',', ': ')))
 	material_id_hash_list = []

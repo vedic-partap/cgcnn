@@ -1,17 +1,17 @@
 # generated using pymatgen
-data_LiCr3O4
+data_Li7Sn2
 _symmetry_space_group_name_H-M   'P 1'
-_cell_length_a   5.91016580
-_cell_length_b   3.17624091
-_cell_length_c   5.91636804
-_cell_angle_alpha   63.68615168
-_cell_angle_beta   90.16067803
-_cell_angle_gamma   116.41886471
+_cell_length_a   4.71086654
+_cell_length_b   8.47649448
+_cell_length_c   8.47649448
+_cell_angle_alpha   109.37277858
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
 _symmetry_Int_Tables_number   1
-_chemical_formula_structural   LiCr3O4
-_chemical_formula_sum   'Li1 Cr3 O4'
-_cell_volume   86.50291600
-_cell_formula_units_Z   1
+_chemical_formula_structural   Li7Sn2
+_chemical_formula_sum   'Li14 Sn4'
+_cell_volume   319.31564625
+_cell_formula_units_Z   2
 loop_
  _symmetry_equiv_pos_site_id
  _symmetry_equiv_pos_as_xyz
@@ -24,11 +24,21 @@ loop_
  _atom_site_fract_y
  _atom_site_fract_z
  _atom_site_occupancy
-  Li  Li1  1  0.000285  0.000921  0.499880  1
-  Cr  Cr2  1  0.000509  0.000815  0.999602  1
-  Cr  Cr3  1  0.499706  0.000455  0.999511  1
-  Cr  Cr4  1  0.499783  0.000097  0.500129  1
-  O  O5  1  0.288475  0.138263  0.211357  1
-  O  O6  1  0.744697  0.002750  0.243560  1
-  O  O7  1  0.255484  0.998444  0.755953  1
-  O  O8  1  0.711637  0.862748  0.788075  1
+  Li  Li1  1  0.000000  0.000000  0.000000  1
+  Li  Li2  1  0.500000  0.500000  0.500000  1
+  Li  Li3  1  0.000000  0.346909  0.346909  1
+  Li  Li4  1  0.000000  0.653091  0.653091  1
+  Li  Li5  1  0.500000  0.172544  0.827456  1
+  Li  Li6  1  0.500000  0.827456  0.172544  1
+  Li  Li7  1  0.000000  0.343969  0.029295  1
+  Li  Li8  1  0.000000  0.656031  0.970705  1
+  Li  Li9  1  0.000000  0.029295  0.343969  1
+  Li  Li10  1  0.000000  0.970705  0.656031  1
+  Li  Li11  1  0.500000  0.503426  0.180387  1
+  Li  Li12  1  0.500000  0.496574  0.819613  1
+  Li  Li13  1  0.500000  0.180387  0.503426  1
+  Li  Li14  1  0.500000  0.819613  0.496574  1
+  Sn  Sn15  1  0.500000  0.164716  0.164716  1
+  Sn  Sn16  1  0.500000  0.835284  0.835284  1
+  Sn  Sn17  1  0.000000  0.317676  0.682323  1
+  Sn  Sn18  1  0.000000  0.682323  0.317676  1

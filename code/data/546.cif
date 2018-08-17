@@ -1,16 +1,16 @@
 # generated using pymatgen
-data_LiMn3O6
+data_NaO3
 _symmetry_space_group_name_H-M   'P 1'
-_cell_length_a   5.07270457
-_cell_length_b   5.07270443
-_cell_length_c   5.31351343
-_cell_angle_alpha   100.19934328
-_cell_angle_beta   100.19934494
-_cell_angle_gamma   117.81966233
+_cell_length_a   3.64017949
+_cell_length_b   4.31656194
+_cell_length_c   4.31656194
+_cell_angle_alpha   76.94960261
+_cell_angle_beta   65.06103036
+_cell_angle_gamma   65.06103027
 _symmetry_Int_Tables_number   1
-_chemical_formula_structural   LiMn3O6
-_chemical_formula_sum   'Li1 Mn3 O6'
-_cell_volume   113.59415079
+_chemical_formula_structural   NaO3
+_chemical_formula_sum   'Na1 O3'
+_cell_volume   55.67229763
 _cell_formula_units_Z   1
 loop_
  _symmetry_equiv_pos_site_id
@@ -24,13 +24,7 @@ loop_
  _atom_site_fract_y
  _atom_site_fract_z
  _atom_site_occupancy
-  Li  Li1  1  0.500000  0.500000  0.500000  1
-  Mn  Mn2  1  0.000000  0.000000  0.000000  1
-  Mn  Mn3  1  0.666040  0.333960  0.000000  1
-  Mn  Mn4  1  0.333960  0.666040  1.000000  1
-  O  O5  1  0.302797  0.302797  0.782516  1
-  O  O6  1  0.406754  0.077983  0.192397  1
-  O  O7  1  0.077983  0.406754  0.192397  1
-  O  O8  1  0.922017  0.593246  0.807603  1
-  O  O9  1  0.593246  0.922017  0.807603  1
-  O  O10  1  0.697203  0.697203  0.217484  1
+  O  O1  1  0.908518  0.879654  0.303310  1
+  O  O2  1  0.041117  0.958883  0.958883  1
+  O  O3  1  0.908518  0.303310  0.879654  1
+  Na  Na4  1  0.517447  0.482553  0.482553  1

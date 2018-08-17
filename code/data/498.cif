@@ -1,17 +1,17 @@
 # generated using pymatgen
-data_LiHO2
+data_NaCl7
 _symmetry_space_group_name_H-M   'P 1'
-_cell_length_a   5.15874821
-_cell_length_b   5.15874821
-_cell_length_c   3.42740382
-_cell_angle_alpha   69.75910634
-_cell_angle_beta   110.24089366
-_cell_angle_gamma   85.35757489
+_cell_length_a   6.14323538
+_cell_length_b   6.14323538
+_cell_length_c   6.14323538
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
 _symmetry_Int_Tables_number   1
-_chemical_formula_structural   LiHO2
-_chemical_formula_sum   'Li2 H2 O4'
-_cell_volume   78.18166203
-_cell_formula_units_Z   2
+_chemical_formula_structural   NaCl7
+_chemical_formula_sum   'Na1 Cl7'
+_cell_volume   231.84165444
+_cell_formula_units_Z   1
 loop_
  _symmetry_equiv_pos_site_id
  _symmetry_equiv_pos_as_xyz
@@ -24,11 +24,11 @@ loop_
  _atom_site_fract_y
  _atom_site_fract_z
  _atom_site_occupancy
-  Li  Li1  1  0.314422  0.314422  0.500000  1
-  Li  Li2  1  0.685578  0.685578  0.500000  1
-  H  H3  1  0.781919  0.218081  0.371745  1
-  H  H4  1  0.218081  0.781919  0.628255  1
-  O  O5  1  0.716536  0.283464  0.564766  1
-  O  O6  1  0.283464  0.716536  0.435234  1
-  O  O7  1  0.189378  0.189378  0.000000  1
-  O  O8  1  0.810622  0.810622  0.000000  1
+  Na  Na1  1  0.000000  0.000000  0.000000  1
+  Cl  Cl2  1  0.500000  0.500000  0.500000  1
+  Cl  Cl3  1  0.000000  0.167124  0.500000  1
+  Cl  Cl4  1  0.000000  0.832876  0.500000  1
+  Cl  Cl5  1  0.500000  0.000000  0.167124  1
+  Cl  Cl6  1  0.500000  0.000000  0.832876  1
+  Cl  Cl7  1  0.167124  0.500000  0.000000  1
+  Cl  Cl8  1  0.832876  0.500000  0.000000  1

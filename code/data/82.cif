@@ -1,17 +1,17 @@
 # generated using pymatgen
-data_Li7Br3O2
+data_K2O2
 _symmetry_space_group_name_H-M   'P 1'
-_cell_length_a   3.98275987
-_cell_length_b   3.98275987
-_cell_length_c   11.23365352
-_cell_angle_alpha   100.21073439
-_cell_angle_beta   100.21073437
-_cell_angle_gamma   90.00000004
+_cell_length_a   7.14375034
+_cell_length_b   7.14375030
+_cell_length_c   5.12295892
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   120.00000017
 _symmetry_Int_Tables_number   1
-_chemical_formula_structural   Li7Br3O2
-_chemical_formula_sum   'Li7 Br3 O2'
-_cell_volume   172.50199802
-_cell_formula_units_Z   1
+_chemical_formula_structural   K2O2
+_chemical_formula_sum   'K6 O6'
+_cell_volume   226.41439701
+_cell_formula_units_Z   3
 loop_
  _symmetry_equiv_pos_site_id
  _symmetry_equiv_pos_as_xyz
@@ -24,15 +24,15 @@ loop_
  _atom_site_fract_y
  _atom_site_fract_z
  _atom_site_occupancy
-  Li  Li1  1  0.593277  0.093277  0.186554  1
-  Li  Li2  1  0.093277  0.593277  0.186554  1
-  Li  Li3  1  0.406723  0.906723  0.813446  1
-  Li  Li4  1  0.906723  0.406723  0.813446  1
-  Li  Li5  1  0.181017  0.181017  0.362033  1
-  Li  Li6  1  0.818983  0.818983  0.637967  1
-  Li  Li7  1  0.000000  0.000000  0.000000  1
-  O  O8  1  0.907793  0.907793  0.815585  1
-  O  O9  1  0.092207  0.092207  0.184415  1
-  Br  Br10  1  0.500000  0.500000  0.000000  1
-  Br  Br11  1  0.689235  0.689235  0.378469  1
-  Br  Br12  1  0.310765  0.310765  0.621531  1
+  K  K1  1  1.000000  0.705568  0.500000  1
+  K  K2  1  0.294432  0.294432  0.500000  1
+  K  K3  1  0.705568  0.000000  0.500000  1
+  K  K4  1  1.000000  0.368149  0.000000  1
+  K  K5  1  0.631851  0.631851  -0.000000  1
+  K  K6  1  0.368149  -0.000000  -0.000000  1
+  O  O7  1  0.666667  0.333333  0.349271  1
+  O  O8  1  0.666667  0.333333  0.650729  1
+  O  O9  1  0.333333  0.666667  0.650729  1
+  O  O10  1  0.333333  0.666667  0.349271  1
+  O  O11  1  0.000000  0.000000  0.851107  1
+  O  O12  1  -0.000000  -0.000000  0.148893  1
