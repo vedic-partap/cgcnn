@@ -19,6 +19,7 @@ with MPRester(API_KEY) as m:
 	query3 = {"formula_anonymous": {"$in":["A", "A2", "A3", "AB", "AB2", "AB3", "AB4", "ABC", "ABC2", "ABC3", "ABC4"]}}
 	dataset = m.query(query3, ["material_id", "formation_energy_per_atom", "cif"])
 	print("Done Querying. Fetched " + str(len(dataset)) + " data")
+	print("Processing dataset...")
 	# print(json.dumps(data, sort_keys=True, indent=4, separators=(',', ': ')))
 	material_id_hash_list = []
 	idprop_list = []
@@ -29,22 +30,26 @@ with MPRester(API_KEY) as m:
 		material_id_hash_list.append([material_hash_counter, material_id])
 		cif_list.append([material_hash_counter, cif])
 		material_hash_counter += 1
+	print("Finished processing dataset!")
 
 	# Write id_prop.csv
 	with open(filepath + '/id_prop.csv', 'w') as file:
 		writer = csv.writer(file)
 		writer.writerows(idprop_list)
+	print("Written id_prop.csv")
 
 	# Write the cif files
 	for row in cif_list:
 		unique_id, cif = row
 		with open(filepath + '/' + str(unique_id) + '.cif', 'w') as file:
 			file.write(cif)
+		print("Written " + str(unique_id) + ".csf")
 
 	# Write materials id hash map: This contains the Unique ID and the material_id (as obtained from original dataset)
 	with open(filepath + '/material_id_hash.csv', 'w') as file:
 		writer = csv.writer(file)
 		writer.writerows(material_id_hash_list)
+	print("Written material_id_hash.csv")
 
 # Generate the command to execute for model training
 total_dataset = len(dataset)
