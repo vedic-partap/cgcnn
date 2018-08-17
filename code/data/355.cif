@@ -1,0 +1,41 @@
+# generated using pymatgen
+data_Li2Eu5O8
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   3.52521920
+_cell_length_b   7.00946584
+_cell_length_c   8.88945764
+_cell_angle_alpha   74.92283819
+_cell_angle_beta   78.56355168
+_cell_angle_gamma   75.43599701
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Li2Eu5O8
+_chemical_formula_sum   'Li2 Eu5 O8'
+_cell_volume   203.19563918
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Li  Li1  1  0.191367  0.881013  0.736252  1
+  Li  Li2  1  0.808633  0.118987  0.263748  1
+  Eu  Eu3  1  0.500000  0.000000  0.000000  1
+  Eu  Eu4  1  0.609289  0.215123  0.566300  1
+  Eu  Eu5  1  0.390711  0.784877  0.433700  1
+  Eu  Eu6  1  0.167183  0.479875  0.185760  1
+  Eu  Eu7  1  0.832817  0.520125  0.814240  1
+  O  O8  1  0.040391  0.145479  0.773739  1
+  O  O9  1  0.959609  0.854521  0.226261  1
+  O  O10  1  0.235718  0.146664  0.381900  1
+  O  O11  1  0.764282  0.853336  0.618100  1
+  O  O12  1  0.822337  0.292217  0.063110  1
+  O  O13  1  0.177663  0.707783  0.936890  1
+  O  O14  1  0.582145  0.492594  0.343116  1
+  O  O15  1  0.417855  0.507406  0.656884  1

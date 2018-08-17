@@ -1,0 +1,36 @@
+# generated using pymatgen
+data_LiOsO3
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.10635146
+_cell_length_b   5.10635146
+_cell_length_c   5.34346091
+_cell_angle_alpha   61.45733123
+_cell_angle_beta   61.45733123
+_cell_angle_gamma   59.99999683
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   LiOsO3
+_chemical_formula_sum   'Li2 Os2 O6'
+_cell_volume   100.63573526
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Li  Li1  1  0.285050  0.285050  0.144849  1
+  Li  Li2  1  0.785050  0.785050  0.644849  1
+  Os  Os3  1  0.499919  0.499919  0.500242  1
+  Os  Os4  1  0.999919  0.999919  0.000242  1
+  O  O5  1  0.877517  0.620596  0.257170  1
+  O  O6  1  0.620596  0.244717  0.257170  1
+  O  O7  1  0.244717  0.877517  0.257170  1
+  O  O8  1  0.377517  0.744717  0.757170  1
+  O  O9  1  0.744717  0.120596  0.757170  1
+  O  O10  1  0.120596  0.377517  0.757170  1
