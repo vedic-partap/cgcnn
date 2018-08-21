@@ -82,7 +82,8 @@ def main():
     global args, best_mae_error
 
     # load data
-    dataset = CIFData(*args.data_options)
+    dataset = CIFData()
+    # *args.data_options)
     collate_fn = collate_pool
     train_loader, val_loader, test_loader = get_train_val_test_loader(
         dataset=dataset, collate_fn=collate_fn, batch_size=args.batch_size,

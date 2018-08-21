@@ -4,7 +4,7 @@ from pymatgen import MPRester
 # from pymatgen.core.structure import Structure
 
 # Initializations
-API_KEY = "jWZsKglIZkoaJT6a"
+API_KEY = "Ll5wvb1s4FcrB78V"
 material_hash_counter = 0		# Unique ID used for storing data
 filepath = "data"
 if not os.path.exists(filepath):
