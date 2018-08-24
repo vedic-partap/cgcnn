@@ -100,12 +100,14 @@ class Argument(object):
 		self.n_conv = n_conv
 		self.n_h = n_h
 		self.cuda = not self.disable_cuda and torch.cuda.is_available()
+		print("Cuda enabled: ", self.cuda)
 
 
 def main(data_options, task='regression', disable_cuda=True, workers=0, epochs=30,
 				start_epoch=0, batch_size=256, lr=0.01, lr_milestones=[100], momentum=0.9,
 				weight_decay=0.0, print_freq=10, resume='', train_size=None, val_size=1000,
-				test_size=1000, optimizer='SGD', atom_fea_len=64, h_fea_len=128, n_conv=3, n_h=1):
+				test_size=1000, optimizer='SGD', atom_fea_len=64, h_fea_len=128, n_conv=3, n_h=1,
+				print_checkpoints=False, save_checkpoints=False):
 	global args, best_mae_error
 	args = Argument(data_options, task=task, disable_cuda=disable_cuda, workers=workers, epochs=epochs,
 			start_epoch=start_epoch, batch_size=batch_size, lr=lr, lr_milestones=lr_milestones,
@@ -191,10 +193,10 @@ def main(data_options, task='regression', disable_cuda=True, workers=0, epochs=3
 
 	for epoch in range(args.start_epoch, args.epochs):
 		# train for one epoch
-		train(train_loader, model, criterion, optimizer, epoch, normalizer)
+		train(train_loader, model, criterion, optimizer, epoch, normalizer, print_checkpoints=print_checkpoints)
 
 		# evaluate on validation set
-		mae_error = validate(val_loader, model, criterion, normalizer)
+		mae_error = validate(val_loader, model, criterion, normalizer, print_checkpoints=print_checkpoints)
 
 		if mae_error != mae_error:
 			print('Exit due to NaN')
@@ -202,31 +204,33 @@ def main(data_options, task='regression', disable_cuda=True, workers=0, epochs=3
 
 		scheduler.step()
 
-		# remember the best mae_eror and save checkpoint
+		# remember the best mae_eror and possibly save checkpoint
 		if args.task == 'regression':
-			# is_best = mae_error < best_mae_error
+			is_best = mae_error < best_mae_error
 			best_mae_error = min(mae_error, best_mae_error)
 		else:
-			# is_best = mae_error > best_mae_error
+			is_best = mae_error > best_mae_error
 			best_mae_error = max(mae_error, best_mae_error)
 		
-		# save_checkpoint({
-		# 	'epoch': epoch + 1,
-		# 	'state_dict': model.state_dict(),
-		# 	'best_mae_error': best_mae_error,
-		# 	'optimizer': optimizer.state_dict(),
-		# 	'normalizer': normalizer.state_dict(),
-		# 	'args': vars(args)
-		# }, is_best)
+		if save_checkpoints:
+			save_checkpoint({
+				'epoch': epoch + 1,
+				'state_dict': model.state_dict(),
+				'best_mae_error': best_mae_error,
+				'optimizer': optimizer.state_dict(),
+				'normalizer': normalizer.state_dict(),
+				'args': vars(args)
+			}, is_best)
 
-	# # test best model
-	# print('---------Evaluate Model on Test Set---------------')
-	# best_checkpoint = torch.load('model_best.pth.tar')
-	# model.load_state_dict(best_checkpoint['state_dict'])
-	# validate(test_loader, model, criterion, normalizer, test=True)
+	# test best model using saved checkpoints
+	if save_checkpoints:
+		print('---------Evaluate Model on Test Set---------------')
+		best_checkpoint = torch.load('model_best.pth.tar')
+		model.load_state_dict(best_checkpoint['state_dict'])
+		validate(test_loader, model, criterion, normalizer, test=True, print_checkpoints=print_checkpoints)
 	return best_mae_error
 
-def train(train_loader, model, criterion, optimizer, epoch, normalizer):
+def train(train_loader, model, criterion, optimizer, epoch, normalizer, print_checkpoints=False):
 	batch_time = AverageMeter()
 	data_time = AverageMeter()
 	losses = AverageMeter()
@@ -295,34 +299,35 @@ def train(train_loader, model, criterion, optimizer, epoch, normalizer):
 		batch_time.update(time.time() - end)
 		end = time.time()
 
-		# if i % args.print_freq == 0:
-		# 	if args.task == 'regression':
-		# 		print('Epoch: [{0}][{1}/{2}]\t'
-		# 			  'Time {batch_time.val:.3f} ({batch_time.avg:.3f})\t'
-		# 			  'Data {data_time.val:.3f} ({data_time.avg:.3f})\t'
-		# 			  'Loss {loss.val:.4f} ({loss.avg:.4f})\t'
-		# 			  'MAE {mae_errors.val:.3f} ({mae_errors.avg:.3f})'.format(
-		# 			   epoch, i, len(train_loader), batch_time=batch_time,
-		# 			   data_time=data_time, loss=losses, mae_errors=mae_errors)
-		# 			  )
-		# 	else:
-		# 		print('Epoch: [{0}][{1}/{2}]\t'
-		# 			  'Time {batch_time.val:.3f} ({batch_time.avg:.3f})\t'
-		# 			  'Data {data_time.val:.3f} ({data_time.avg:.3f})\t'
-		# 			  'Loss {loss.val:.4f} ({loss.avg:.4f})\t'
-		# 			  'Accu {accu.val:.3f} ({accu.avg:.3f})\t'
-		# 			  'Precision {prec.val:.3f} ({prec.avg:.3f})\t'
-		# 			  'Recall {recall.val:.3f} ({recall.avg:.3f})\t'
-		# 			  'F1 {f1.val:.3f} ({f1.avg:.3f})\t'
-		# 			  'AUC {auc.val:.3f} ({auc.avg:.3f})'.format(
-		# 			   epoch, i, len(train_loader), batch_time=batch_time,
-		# 			   data_time=data_time, loss=losses, accu=accuracies,
-		# 			   prec=precisions, recall=recalls, f1=fscores,
-		# 			   auc=auc_scores)
-		# 			  )
+		if print_checkpoints:
+			if i % args.print_freq == 0:
+				if args.task == 'regression':
+					print('Epoch: [{0}][{1}/{2}]\t'
+						  'Time {batch_time.val:.3f} ({batch_time.avg:.3f})\t'
+						  'Data {data_time.val:.3f} ({data_time.avg:.3f})\t'
+						  'Loss {loss.val:.4f} ({loss.avg:.4f})\t'
+						  'MAE {mae_errors.val:.3f} ({mae_errors.avg:.3f})'.format(
+						   epoch, i, len(train_loader), batch_time=batch_time,
+						   data_time=data_time, loss=losses, mae_errors=mae_errors)
+						  )
+				else:
+					print('Epoch: [{0}][{1}/{2}]\t'
+						  'Time {batch_time.val:.3f} ({batch_time.avg:.3f})\t'
+						  'Data {data_time.val:.3f} ({data_time.avg:.3f})\t'
+						  'Loss {loss.val:.4f} ({loss.avg:.4f})\t'
+						  'Accu {accu.val:.3f} ({accu.avg:.3f})\t'
+						  'Precision {prec.val:.3f} ({prec.avg:.3f})\t'
+						  'Recall {recall.val:.3f} ({recall.avg:.3f})\t'
+						  'F1 {f1.val:.3f} ({f1.avg:.3f})\t'
+						  'AUC {auc.val:.3f} ({auc.avg:.3f})'.format(
+						   epoch, i, len(train_loader), batch_time=batch_time,
+						   data_time=data_time, loss=losses, accu=accuracies,
+						   prec=precisions, recall=recalls, f1=fscores,
+						   auc=auc_scores)
+						  )
 
 
-def validate(val_loader, model, criterion, normalizer, test=False):
+def validate(val_loader, model, criterion, normalizer, test=False, print_checkpoints=False):
 	batch_time = AverageMeter()
 	losses = AverageMeter()
 	if args.task == 'regression':
@@ -399,44 +404,45 @@ def validate(val_loader, model, criterion, normalizer, test=False):
 		batch_time.update(time.time() - end)
 		end = time.time()
 
-		# if i % args.print_freq == 0:
-		# 	if args.task == 'regression':
-		# 		print('Test: [{0}/{1}]\t'
-		# 			  'Time {batch_time.val:.3f} ({batch_time.avg:.3f})\t'
-		# 			  'Loss {loss.val:.4f} ({loss.avg:.4f})\t'
-		# 			  'MAE {mae_errors.val:.3f} ({mae_errors.avg:.3f})'.format(
-		# 			   i, len(val_loader), batch_time=batch_time, loss=losses,
-		# 			   mae_errors=mae_errors))
-		# 	else:
-		# 		print('Test: [{0}/{1}]\t'
-		# 			  'Time {batch_time.val:.3f} ({batch_time.avg:.3f})\t'
-		# 			  'Loss {loss.val:.4f} ({loss.avg:.4f})\t'
-		# 			  'Accu {accu.val:.3f} ({accu.avg:.3f})\t'
-		# 			  'Precision {prec.val:.3f} ({prec.avg:.3f})\t'
-		# 			  'Recall {recall.val:.3f} ({recall.avg:.3f})\t'
-		# 			  'F1 {f1.val:.3f} ({f1.avg:.3f})\t'
-		# 			  'AUC {auc.val:.3f} ({auc.avg:.3f})'.format(
-		# 			   i, len(val_loader), batch_time=batch_time, loss=losses,
-		# 			   accu=accuracies, prec=precisions, recall=recalls,
-		# 			   f1=fscores, auc=auc_scores))
+		if print_checkpoints:
+			if i % args.print_freq == 0:
+				if args.task == 'regression':
+					print('Test: [{0}/{1}]\t'
+						  'Time {batch_time.val:.3f} ({batch_time.avg:.3f})\t'
+						  'Loss {loss.val:.4f} ({loss.avg:.4f})\t'
+						  'MAE {mae_errors.val:.3f} ({mae_errors.avg:.3f})'.format(
+						   i, len(val_loader), batch_time=batch_time, loss=losses,
+						   mae_errors=mae_errors))
+				else:
+					print('Test: [{0}/{1}]\t'
+						  'Time {batch_time.val:.3f} ({batch_time.avg:.3f})\t'
+						  'Loss {loss.val:.4f} ({loss.avg:.4f})\t'
+						  'Accu {accu.val:.3f} ({accu.avg:.3f})\t'
+						  'Precision {prec.val:.3f} ({prec.avg:.3f})\t'
+						  'Recall {recall.val:.3f} ({recall.avg:.3f})\t'
+						  'F1 {f1.val:.3f} ({f1.avg:.3f})\t'
+						  'AUC {auc.val:.3f} ({auc.avg:.3f})'.format(
+						   i, len(val_loader), batch_time=batch_time, loss=losses,
+						   accu=accuracies, prec=precisions, recall=recalls,
+						   f1=fscores, auc=auc_scores))
 
-	# if test:
-	# 	star_label = '**'
-	# 	import csv
-	# 	with open('test_results.csv', 'w') as f:
-	# 		writer = csv.writer(f)
-	# 		for cif_id, target, pred in zip(test_cif_ids, test_targets,
-	# 										test_preds):
-	# 			writer.writerow((cif_id, target, pred))
-	# else:
-	# 	star_label = '*'
+	if test:
+		star_label = '**'
+		import csv
+		with open('test_results.csv', 'w') as f:
+			writer = csv.writer(f)
+			for cif_id, target, pred in zip(test_cif_ids, test_targets,
+											test_preds):
+				writer.writerow((cif_id, target, pred))
+	else:
+		star_label = '*'
 	if args.task == 'regression':
-		# print(' {star} MAE {mae_errors.avg:.3f}'.format(star=star_label,
-		# 												mae_errors=mae_errors))
+		print(' {star} MAE {mae_errors.avg:.3f}'.format(star=star_label,
+														mae_errors=mae_errors))
 		return mae_errors.avg
 	else:
-		# print(' {star} AUC {auc.avg:.3f}'.format(star=star_label,
-		# 										 auc=auc_scores))
+		print(' {star} AUC {auc.avg:.3f}'.format(star=star_label,
+												 auc=auc_scores))
 		return auc_scores.avg
 
 
