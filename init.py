@@ -8,6 +8,7 @@ train_size = math.floor(0.6 * TOTAL_SIZE)
 val_size = math.floor(0.2 * TOTAL_SIZE)
 test_size = TOTAL_SIZE - train_size - val_size
 
+
 def init(data_options, task='regression', disable_cuda=True, workers=0, epochs=30,
 				start_epoch=0, batch_size=256, lr=0.01, lr_milestones=[100], momentum=0.9,
 				weight_decay=0.0, print_freq=10, resume='', train_size=None, val_size=1000,
@@ -22,10 +23,13 @@ def init(data_options, task='regression', disable_cuda=True, workers=0, epochs=3
 
 if __name__ == '__main__':
 	# Set the tuned params here
-	conv_layer = 2
+	# conv_layer = 2
+	conv_layer = 1
 	step = math.exp(-5)
 	decay = math.exp(-6)
 
 	error = init(FILEPATH, disable_cuda=DISABLE_CUDA, train_size=train_size,
 					val_size=val_size, test_size=test_size, optimizer='Adam', n_conv=conv_layer,
 					lr=step, weight_decay=decay)
+
+	# For testing purposes: atom_fea_len=4, h_fea_len=16, batch_size=32, epochs=5

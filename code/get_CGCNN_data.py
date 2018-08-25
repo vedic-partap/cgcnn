@@ -53,7 +53,7 @@ if write_to_file:
 		unique_id, cif = row
 		with open(filepath + '/' + str(unique_id) + '.cif', 'w') as file:
 			file.write(cif)
-		print("Written " + str(unique_id) + ".csf")
+		print("Written " + str(unique_id) + ".cif")
 
 	# Write materials id hash map: This contains the Unique ID and the material_id (as obtained from original dataset)
 	with open(filepath + '/material_id_hash.csv', 'w') as file:

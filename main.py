@@ -13,6 +13,7 @@ import torch.nn as nn
 import torch.optim as optim
 from torch.autograd import Variable
 from torch.optim.lr_scheduler import MultiStepLR
+# from torchviz import make_dot
 
 from cgcnn.model import CrystalGraphConvNet
 from cgcnn.data import collate_pool, get_train_val_test_loader
@@ -273,6 +274,8 @@ def train(train_loader, model, criterion, optimizer, epoch, normalizer, print_ch
 
 		# compute output
 		output = model(*input_var)
+		# temp_var = make_dot(output, params=dict(model.named_parameters()))
+		# temp_var.render('temp.gv', view=True)
 		loss = criterion(output, target_var)
 
 		# measure accuracy and record loss
