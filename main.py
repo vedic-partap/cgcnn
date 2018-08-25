@@ -231,6 +231,7 @@ def main(data_options, task='regression', disable_cuda=True, workers=0, epochs=3
 		validate(test_loader, model, criterion, normalizer, test=True, print_checkpoints=print_checkpoints)
 	return best_mae_error
 
+
 def train(train_loader, model, criterion, optimizer, epoch, normalizer, print_checkpoints=False):
 	batch_time = AverageMeter()
 	data_time = AverageMeter()

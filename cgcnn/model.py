@@ -60,17 +60,17 @@ class ConvLayer(nn.Module):
 		# TODO will there be problems with the index zero padding?
 		N, M = nbr_fea_idx.shape
 		# convolution
-		atom_nbr_fea = atom_in_fea[nbr_fea_idx, :]
+		atom_nbr_fea = atom_in_fea[nbr_fea_idx, :]		# [N, M, atom_fea_len]
 		total_nbr_fea = torch.cat(
 			[atom_in_fea.unsqueeze(1).expand(N, M, self.atom_fea_len),
-			 atom_nbr_fea, nbr_fea], dim=2)
-		total_gated_fea = self.fc_full(total_nbr_fea)
+			 atom_nbr_fea, nbr_fea], dim=2)		# [N, M, nbr_fea_len + 2*atom_fea_len]
+		total_gated_fea = self.fc_full(total_nbr_fea)		# [N, M, 2*atom_fea_len]
 		total_gated_fea = self.bn1(total_gated_fea.view(
 			-1, self.atom_fea_len * 2)).view(N, M, self.atom_fea_len * 2)
-		nbr_filter, nbr_core = total_gated_fea.chunk(2, dim=2)
+		nbr_filter, nbr_core = total_gated_fea.chunk(2, dim=2)		# [N, M, atom_fea_len] each
 		nbr_filter = self.sigmoid(nbr_filter)
 		nbr_core = self.softplus1(nbr_core)
-		nbr_sumed = torch.sum(nbr_filter * nbr_core, dim=1)
+		nbr_sumed = torch.sum(nbr_filter * nbr_core, dim=1)		# [N, atom_fea_len]
 		nbr_sumed = self.bn2(nbr_sumed)
 		out = self.softplus2(atom_in_fea + nbr_sumed)
 		return out
